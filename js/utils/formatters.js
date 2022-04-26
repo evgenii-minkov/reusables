@@ -9,7 +9,7 @@
 export function conjugateQuantityRus(quantity, titles) {
 	const cases = [2, 0, 1, 1, 1, 2];
 	if (!Array.isArray(titles))
-		return;
+		return "";
 
 	return titles[
 		quantity % 100 > 4 && quantity % 100 < 20

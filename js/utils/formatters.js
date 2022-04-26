@@ -8,7 +8,7 @@
  */
 export function conjugateQuantityRus(quantity, titles) {
 	const cases = [2, 0, 1, 1, 1, 2];
-	if (!titles)
+	if (!Array.isArray(titles))
 		return;
 
 	return titles[

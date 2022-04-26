@@ -1,3 +1,5 @@
+import { conjugateQuantityRus } from "./formatters";
+
 export const mapKopecksToRubles = (_kopecks, { raw = false, withKopecks=true } = {}) => {
 	if(typeof _kopecks !== "number" || _kopecks === 0)
 		return raw ? 0 : withKopecks ? "0,00" : "0";
@@ -13,4 +15,11 @@ export const mapKopecksToRubles = (_kopecks, { raw = false, withKopecks=true } =
 				? "," + kopecks + (kopecks <= 9 ? "0" : "")
 				: ""
 		);
+};
+
+export const mapKopecksToRublesVerbose = priceKopecks => {
+	const rubles = mapKopecksToRubles(priceKopecks, { raw: true, withKopecks: true });
+	const title = conjugateQuantityRus(rubles, ["рубль", "рубля", "рублей"]);
+
+	return rubles + " " + title;
 };

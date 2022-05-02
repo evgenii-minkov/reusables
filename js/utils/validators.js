@@ -1,0 +1,1 @@
+export const validateDate = date => Boolean(Date.parse(date));

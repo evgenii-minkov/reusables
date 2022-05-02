@@ -23,3 +23,20 @@ export const mapKopecksToRublesVerbose = priceKopecks => {
 
 	return rubles + " " + title;
 };
+
+/** 
+ * Returns a function that applies a sequence of mappings to an item
+ * 
+ * @param {Function[]} mappers
+ * 
+ * @returns {Function}
+ */
+export const mapPipeline = (...mappers) => {
+	return function(item) {
+		for(const mapper of mappers)
+			if(typeof mapper === "function")
+				item = mapper(item);
+
+		return item;
+	}
+};

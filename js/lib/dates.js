@@ -31,3 +31,9 @@ export const mapDateToDurationVerbose = (date, { formatter, format = DEFAULT_DUR
 
 	return formatter(duration, { format, locale });
 };
+
+export const mapTimestampToDate = (timestamp, { isSeconds = true } = {}) => {
+	const format = isSeconds ? "t" : "T";
+
+	return parse(timestamp, format, new Date());
+};

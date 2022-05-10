@@ -4,6 +4,7 @@
 
 import intervalToDuration from "date-fns/intervalToDuration";
 import formatDuration from "date-fns/formatDuration";
+import parse from "date-fns/parse";
 import enUS from "date-fns/locale/en-US";
 
 import { validateDate } from "@utils/validators"; // TODO implement this

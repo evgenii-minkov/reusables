@@ -36,5 +36,7 @@ export const mapDateToDurationVerbose = (date, { formatter, format = DEFAULT_DUR
 export const mapTimestampToDate = (timestamp, { isSeconds = true } = {}) => {
 	const format = isSeconds ? "t" : "T";
 
-	return parse(timestamp, format, new Date());
+	const parsed = parse(timestamp, format, new Date())
+
+	return validateDate(parsed) ? parsed : null;
 };

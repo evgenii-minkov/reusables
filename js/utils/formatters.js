@@ -14,6 +14,6 @@ export function conjugateQuantityRus(quantity, titles) {
 	return titles[
 		quantity % 100 > 4 && quantity % 100 < 20
 			? 2
-			: cases[quantity % 10 < 5 ? quantity % 10 : 5]
+			: cases[quantity % 10 < 5 ? Math.trunc(quantity % 10) : 5]
 	];
 }

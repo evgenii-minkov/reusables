@@ -1,0 +1,137 @@
+/** Screen sizes (debatable)
+	- mobiles have no minimal width
+	- studio screens have no maximum width
+	- "device" - is a range from minimal width to maximum
+ */
+$mobileMaxWidth: 767px; // 1. mobiles
+$tabletMinWidth: 768px; // 2. tablets
+$tabletMaxWidth: 1023px;
+$laptopMinWidth: 1024px; // 3. laptops
+$laptopMaxWidth: 1279px;
+$desktopMinWidth: 1280px; // 4. "desktops"
+$desktopMaxWidth: 1399px;
+$designMinWidth: 1400px; // 5. screens used in designs
+$designMaxWidth: 1599px;
+$studioMinWidth: 1600px; // 6. screens used to design with
+
+
+/** Миксины для устройств 
+	 - if some rule should be applied to all sizes, then it requires no mixin (abstract first layout)
+		 -- given current const sizes, that would be "mobile-studio"
+	 - for cutting smaller screens use `${ deviceName }-plus` mixins
+		 -- for example, for tablets and above (but no mobiles) use `tablet-plus`
+ */
+
+@mixin mobile() {
+	@media screen and (max-width: $mobileMaxWidth) {
+		@content;
+	}
+}
+
+@mixin mobile-tablet() {
+	@media screen and (max-width: $tabletMaxWidth) {
+		@content;
+	}
+}
+
+@mixin mobile-laptop() {
+	@media screen and (max-width: $laptopMaxWidth) {
+		@content;
+	}
+}
+
+@mixin mobile-desktop() {
+	@media screen and (max-width: $desktopMaxWidth) {
+		@content;
+	}
+}
+
+@mixin mobile-design() {
+	@media screen and (max-width: $designMaxWidth) {
+		@content;
+	}
+}
+
+@mixin mobile-plus() {
+	@media screen and (min-width: $tabletMinWidth) {
+		@content;
+	}
+}
+
+@mixin tablet() {
+	@media screen and (min-width: $tabletMinWidth) and (max-width: $tabletMaxWidth) {
+		@content;
+	}
+}
+
+@mixin tablet-laptop() {
+	@media screen and (min-width: $tabletMinWidth) and (max-width: $laptopMaxWidth) {
+		@content;
+	}
+}
+
+@mixin tablet-desktop() {
+	@media (min-width: $tabletMinWidth) and (max-width: $desktopMaxWidth) {
+		@content;
+	}
+}
+
+@mixin tablet-design() {
+	@media (min-width: $tabletMinWidth) and (max-width: $designMaxWidth) {
+		@content;
+	}
+}
+
+@mixin tablet-plus() {
+	@media (min-width: $laptopMinWidth) {
+		@content;
+	}
+}
+
+@mixin laptop() {
+	@media screen and (min-width: $laptopMinWidth) and (max-width: $laptopMaxWidth) {
+		@content;
+	}
+}
+
+@mixin laptop-plus() {
+	@media screen and (min-width: $desktopMinWidth) {
+		@content;
+	}
+}
+
+@mixin desktop() {
+	@media (min-width: $desktopMinWidth) and (max-width: $desktopMaxWidth) {
+		@content;
+	}
+}
+
+@mixin desktop-design() {
+	@media (min-width: $desktopMinWidth) and (max-width: $designMaxWidth) {
+		@content;
+	}
+}
+
+@mixin desktop-plus() {
+	@media (min-width: $designMinWidth) {
+		@content;
+	}
+}
+
+@mixin design() {
+	@media (min-width: $designMinWidth) and (max-width: $designMaxWidth) {
+		@content;
+	}
+}
+
+@mixin design-plus() {
+	@media (min-width: $studioMinWidth) {
+		@content;
+	}
+}
+
+@mixin studio() {
+	@media (min-width: $studioMinWidth) {
+		@content;
+	}
+}

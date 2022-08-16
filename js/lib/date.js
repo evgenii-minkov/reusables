@@ -7,11 +7,11 @@ import formatDuration from "date-fns/formatDuration";
 import parse from "date-fns/parse";
 import enUS from "date-fns/locale/en-US";
 
-import { validateDate } from "@utils/validators"; // TODO implement this
-
 
 const DEFAULT_LOCALE = enUS;
 const DEFAULT_DURATION_FORMAT = ["years", "months", "days"];
+
+export const validateDate = date => Boolean(Date.parse(date));
 
 export const mapDateToDuration = (date) => {
 	if (!validateDate(date))

@@ -1,0 +1,29 @@
+.button {
+	$size: 15px;
+
+	height: $size;
+	width: $size;
+	user-select: none;
+	transition: ease-in-out 0.17s;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+
+	&.off {
+		transform: rotate(90deg);
+	}
+
+	&.on {
+		transform: rotate(180deg);
+	}
+}
+
+.control {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.title {
+	margin-left: 0.5rem;
+}

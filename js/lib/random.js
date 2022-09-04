@@ -25,3 +25,8 @@ export function generateRandomHex() {
 export function generateRandomHex2() {
 	return HEX_PREFIX + Math.floor(Math.random() * 0xffffff).toString(HEX_RADIX).padStart(HEX_LENGTH, "0");
 }
+
+// min & max are included
+export const generateRandomIntegerFromInterval = (min, max) => {
+	return Math.floor(Math.random() * (max - min + 1) + min);
+}
